@@ -11,11 +11,19 @@ artifacts {
     archives sourcesJar
 }
 
-Properties properties = new Properties()
-properties.load( new FileInputStream("local.properties"))
+def localUser = null
+def localKey = null
 
-def localUser = properties.getProperty("bintray.user")
-def localKey = properties.getProperty("bintray.apikey")
+Properties properties = new Properties()
+
+try {
+    properties.load(new FileInputStream("local.properties"))
+
+    localUser = properties.getProperty("bintray.user")
+    localKey = properties.getProperty("bintray.apikey")
+}catch (ignored){
+
+}
 
 // Bintray
 bintray {
