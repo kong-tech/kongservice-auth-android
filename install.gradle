@@ -1,0 +1,39 @@
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = 'com.kongtech.service.sdk.auth'
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'aar'
+                groupId 'com.kongtech.service.sdk.auth'
+                artifactId 'kongservice-auth'
+                name 'kongservice-auth'
+                description '콩서비스를 이용하기 위한 안드로이드 라이브러리'
+                url 'https://github.com/kong-tech/kongservice-auth-android'
+
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'konglhj'
+                        name 'ho jin'
+                        email 'konglhj@kong-tech.com'
+                    }
+                }
+
+                scm {
+                    connection 'https://github.com/kong-tech/kongservice-auth-android.git'
+                    developerConnection 'https://github.com/kong-tech/kongservice-auth-android.git'
+                    url 'https://github.com/kong-tech/kongservice-auth-android'
+                }
+            }
+        }
+    }
+}
