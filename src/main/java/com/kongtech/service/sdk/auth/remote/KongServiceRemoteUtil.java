@@ -45,7 +45,7 @@ public class KongServiceRemoteUtil {
                 .readTimeout(5, TimeUnit.SECONDS)
                 .writeTimeout(5, TimeUnit.SECONDS)
                 .authenticator(new TokenAuthenticator())
-                .addInterceptor(interceptor)
+//                .addInterceptor(interceptor)
                 .build();
 
         kongPassRemoteUtil.remoteInterface = new Retrofit.Builder()

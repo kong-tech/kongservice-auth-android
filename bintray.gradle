@@ -1,0 +1,33 @@
+apply plugin: 'com.jfrog.bintray'
+
+version = '1.0.1'
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+Properties properties = new Properties()
+properties.load( new FileInputStream("local.properties"))
+
+// Bintray
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+
+    pkg {
+        repo = 'maven'
+        name = 'com.kongtech.service.sdk.auth'
+        configurations = ['archives']
+        desc = '콩서비스를 이용하기 위한 안드로이드 라이브러리'
+        websiteUrl = 'https://github.com/kong-tech/kongservice-auth-android'
+        vcsUrl = 'https://github.com/kong-tech/kongservice-auth-android.git'
+        licenses = ["Apache-2.0"]
+        publish = true
+        publicDownloadNumbers = true
+    }
+}
